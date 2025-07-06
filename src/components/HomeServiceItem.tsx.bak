@@ -1,0 +1,32 @@
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+interface HomeServiceItemProps {
+  icon: IconDefinition;
+  title: string;
+  // index: number; // Removed as unused
+  onClick: () => void;
+}
+
+// Define an array of background colors (Tailwind classes) - Removed as unused
+
+const HomeServiceItem: React.FC<HomeServiceItemProps> = ({ icon, title, onClick }) => {
+  // Select color based on index, cycling through the array
+  // const bgColor = bgColors[index % bgColors.length];
+
+  return (
+    <button
+      onClick={onClick}
+      className="flex flex-col items-center justify-center p-4 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-75 w-full aspect-square"
+    >
+      {/* Icon directly inside, adjust color and size */}
+      <FontAwesomeIcon icon={icon} className="text-teal-600 text-2xl mb-2" />
+      {/* Service name - Adjusted color for white background */}
+      <span className="text-xs text-center font-medium text-gray-700 break-words w-full">{title}</span>
+    </button>
+  );
+};
+
+export default HomeServiceItem;
+
