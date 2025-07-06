@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+/* Styling for light theme */
+.app-container {
+  @apply bg-white text-gray-900;
+}
+
+.page-header {
+  @apply bg-gradient-to-r from-blue-400 to-blue-500 text-white;
+}
+
+.card-container {
+  @apply bg-white shadow-md hover:shadow-lg transition-all duration-300 rounded-xl overflow-hidden;
+}
+
+.category-button {
+  @apply rounded-full px-6 py-2 font-medium text-sm transition-all;
+}
+
+.category-button-active {
+  @apply bg-blue-500 text-white;
+}
+
+.category-button-inactive {
+  @apply bg-gray-100 text-gray-700 hover:bg-gray-200;
+}
+
+/* More aggressive attempts to hide Manus Badge */
+[class*="manus-badge"],
+[data-manus-badge],
+[id*="manus-badge"],
+[class*="manus_badge"],
+[data-manus_badge],
+[id*="manus_badge"],
+[class*="made-with-manus"],
+[data-made-with-manus],
+[id*="made-with-manus"],
+div[style*="z-index"][style*="fixed"],
+div[style*="z-index"][style*="absolute"],
+body > div[style*="z-index"]:not(#root):not([class]) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* General overlay selectors - might be too broad but worth a try if badge is very persistent */
+body > div:last-child[style*="fixed"],
+body > div:last-child[style*="absolute"] {
+    display: none !important;
+    visibility: hidden !important;
+}
